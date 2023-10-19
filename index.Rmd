@@ -69,4 +69,31 @@ df %>%
 ---
 ## Your turn
 
+---
+## Rmarkdown
 
+- File format for reports
+- It combines R code and text
+- It generates documents (pdf, word, html).
+
+---
+
+![](./rmakrdown.png)
+
+---
+## Rmarkdown
+
+- R code appears between ``` tags.
+- Outside the tags, your can use _markdown_
+
+---
+![](./tags.png)
+
+- Line 11 is text (level 2 header)
+- Line 15 is regular text.
+- Lines 17-19 are R code
+
+---
+## Knit
+
+- Press the knit button to generate the final document.
