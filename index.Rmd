@@ -59,42 +59,71 @@ x |>
 - With the pipe operator we can chain multiple functions together.
 
 - Calculate mean total points grouped by playoffs.
-```{r}
-df <- readRDS('./nba.rds')
 
-df %>% 
+.pull-left[
+
+```{r}
+nba <- readRDS('./nba.rds')
+
+nba_grouped <- group_by(nba, Playoff) 
+
+nba_summary <- summarize(nba_grouped,
+                         avg_pts=mean(PTS))
+```
+]
+
+.pull-right[
+
+```{r}
+nba_summary <- readRDS('./nba.rds') %>% 
   group_by(Playoff) %>% 
   summarize(avg_pts=mean(PTS))
 ```
+]
 
----
-## Your turn
+
 
 ---
 ## Rmarkdown
 
 - File format for reports
+
 - It combines R code and text
+
 - It generates documents (pdf, word, html).
 
 ---
 
+## Create a file inside your project
+
 ![](./rmakrdown.png)
+
+---
+
+## Contents
+![](./tags.png)
+
+- Line 11 is text (level 2 header).
+
+- Line 15 is regular text.
+
+- Lines 17-19 are R code
 
 ---
 ## Rmarkdown
 
-- R code chunks appear between backticks (`).
+- R __code chunks__ appear between 3 backticks (`). 
+
+- When we run the file, R runs all the code inside this chunks and puts the output in the final document.
+
+- Ctrl+Shift+i inserts a code chunk.
+
 - Outside the tags, your can use _markdown_
 
----
-![](./tags.png)
-
-- Line 11 is text (level 2 header)
-- Line 15 is regular text.
-- Lines 17-19 are R code
 
 ---
 ## Knit
 
-- Press the knit button to generate the final document.
+- Press the knit button to generate the final document (pdf, word or html file).
+
+![](./knit.png)

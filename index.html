@@ -45,53 +45,75 @@ x |&gt;
 
 - Calculate mean total points grouped by playoffs.
 
-```r
-df &lt;- readRDS('./nba.rds')
+.pull-left[
 
-df %&gt;% 
+
+```r
+nba &lt;- readRDS('./nba.rds')
+
+nba_grouped &lt;- group_by(nba, Playoff) 
+
+nba_summary &lt;- summarize(nba_grouped,
+                         avg_pts=mean(PTS))
+```
+]
+
+.pull-right[
+
+
+```r
+nba_summary &lt;- readRDS('./nba.rds') %&gt;% 
   group_by(Playoff) %&gt;% 
   summarize(avg_pts=mean(PTS))
 ```
+]
 
-```
-## # A tibble: 2 × 2
-##   Playoff avg_pts
-##   &lt;fct&gt;     &lt;dbl&gt;
-## 1 N         8576 
-## 2 Y         8845.
-```
 
----
-## Your turn
 
 ---
 ## Rmarkdown
 
 - File format for reports
+
 - It combines R code and text
+
 - It generates documents (pdf, word, html).
 
 ---
 
+## Create a file inside your project
+
 ![](./rmakrdown.png)
+
+---
+
+## Contents
+![](./tags.png)
+
+- Line 11 is text (level 2 header).
+
+- Line 15 is regular text.
+
+- Lines 17-19 are R code
 
 ---
 ## Rmarkdown
 
-- R code chunks appear between backticks (`).
+- R __code chunks__ appear between 3 backticks (`). 
+
+- When we run the file, R runs all the code inside this chunks and puts the output in the final document.
+
+- Ctrl+Shift+i inserts a code chunk.
+
 - Outside the tags, your can use _markdown_
 
----
-![](./tags.png)
-
-- Line 11 is text (level 2 header)
-- Line 15 is regular text.
-- Lines 17-19 are R code
 
 ---
 ## Knit
 
-- Press the knit button to generate the final document.
+- Press the knit button to generate the final document (pdf, word or html file).
+
+![](./knit.png)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
