@@ -52,6 +52,7 @@ x |>
 ```
 
 - Use a keyboard shortcut to put it in a script! 
+
 - In my mac is Ctrl+Shift m
 ---
 # Why?
@@ -86,9 +87,9 @@ nba_summary <- readRDS('./nba.rds') %>%
 ---
 ## Rmarkdown
 
-- File format for reports
+- File format for reports.
 
-- It combines R code and text
+- It combines R code and text.
 
 - It generates documents (pdf, word, html).
 
